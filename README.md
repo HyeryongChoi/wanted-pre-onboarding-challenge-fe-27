@@ -30,7 +30,7 @@ npm run dev
 
 ## Skills
 
-React v18, React Router v6, Tanstack-Query v5, Vite v5
+React v18, React Router v6, TanStack-Query v5, Vite v5
 
 ## Features
 
