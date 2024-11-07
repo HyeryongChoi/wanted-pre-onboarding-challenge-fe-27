@@ -3,7 +3,7 @@ import { PropsWithChildren } from 'react';
 
 function Layout({ children }: PropsWithChildren) {
   return (
-    <Container maxWidth='xl' component='main' sx={{ backgroundColor: 'aliceblue', height: '100vh', padding: '20px' }}>
+    <Container maxWidth='xl' component='main' sx={{ height: '100vh', padding: 2 }}>
       {children}
     </Container>
   );
