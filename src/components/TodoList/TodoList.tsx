@@ -71,11 +71,13 @@ export default function TodoList(props: TodoListProps) {
         </List>
       )}
 
-      <Collapse in={isOpen} sx={{ flex: 1 }}>
-        <Paper elevation={3} sx={{ padding: 2, borderRadius: 2 }}>
-          <TodoDetail todo={selectedTodo} handleUpdate={handleUpdate} handleDelete={handleDelete} />
-        </Paper>
-      </Collapse>
+      {todoList.length > 0 && (
+        <Collapse in={isOpen} sx={{ flex: 1 }}>
+          <Paper elevation={3} sx={{ padding: 2, borderRadius: 2 }}>
+            <TodoDetail todo={selectedTodo} handleUpdate={handleUpdate} handleDelete={handleDelete} />
+          </Paper>
+        </Collapse>
+      )}
     </Box>
   );
 }
