@@ -1,12 +1,15 @@
 import { Outlet } from 'react-router-dom';
 
-import { Layout } from './components/@common';
+import { Header, Layout } from '@/components/@common';
 
 function App() {
   return (
-    <Layout>
-      <Outlet />
-    </Layout>
+    <>
+      <Header title='Todo List' />
+      <Layout>
+        <Outlet />
+      </Layout>
+    </>
   );
 }
 
