@@ -28,7 +28,7 @@ export interface PostTodoRequest {
   content: string;
 }
 
-/** create todo */
+/** update todo */
 export interface PutTodoRequest {
   id: string;
   title: string;

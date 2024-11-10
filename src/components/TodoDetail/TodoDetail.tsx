@@ -1,19 +1,19 @@
+import { Todo } from '@/types/client/todo';
 import { Box, Button, TextField } from '@mui/material';
 import { ChangeEvent, useEffect, useState } from 'react';
 
-import { Todo } from '@/types/client/todo';
-
 interface TodoDetailProps {
-  todo: Todo;
-  handleDelete: (id: string) => void;
-  handleUpdate: (id: string, newTitle: string, newContent: string) => void;
+  todo?: Todo;
+  handleCreate?: (newTodo: { title: string; content: string }) => void;
+  handleDelete?: (id: string) => void;
+  handleUpdate?: (todo: Todo) => void;
 }
 
 export default function TodoDetail(props: TodoDetailProps) {
-  const { todo, handleDelete, handleUpdate } = props;
-  const [newTitle, setNewTitle] = useState(todo.title);
-  const [newContent, setNewContent] = useState(todo.content);
-  const [isEditing, setIsEditing] = useState(false);
+  const { todo, handleCreate, handleDelete, handleUpdate } = props;
+  const [newTitle, setNewTitle] = useState(todo ? todo.title : '');
+  const [newContent, setNewContent] = useState(todo ? todo.content : '');
+  const [isEditing, setIsEditing] = useState(todo ? false : true);
 
   const handleTitleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setNewTitle(e.target.value);
@@ -28,20 +28,39 @@ export default function TodoDetail(props: TodoDetailProps) {
   };
 
   const handleSave = () => {
-    handleUpdate(todo.id, newTitle, newContent);
+    if (todo) {
+      // edit mode
+      handleUpdate?.({ id: todo.id, title: newTitle, content: newContent });
+    } else {
+      // create mode
+      handleCreate?.({ title: newTitle, content: newContent });
+    }
     setIsEditing(false);
   };
 
   const handleCancel = () => {
-    setNewTitle(todo.title);
-    setNewContent(todo.content);
+    if (todo) {
+      setNewTitle(todo.title);
+      setNewContent(todo.content);
+    } else {
+      setNewTitle('');
+      setNewContent('');
+    }
     setIsEditing(false);
   };
 
+  const handleDeleteClick = () => {
+    if (todo) {
+      handleDelete?.(todo.id);
+    }
+  };
+
   useEffect(() => {
-    setNewTitle(todo.title);
-    setNewContent(todo.content);
-  }, [todo.title, todo.content]);
+    if (todo) {
+      setNewTitle(todo.title);
+      setNewContent(todo.content);
+    }
+  }, [todo]);
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
@@ -70,7 +89,7 @@ export default function TodoDetail(props: TodoDetailProps) {
             <Button variant='contained' color='primary' onClick={handleEdit}>
               Edit
             </Button>
-            <Button variant='contained' sx={{ backgroundColor: '#ff8eac' }} onClick={() => handleDelete(todo.id)}>
+            <Button variant='contained' sx={{ backgroundColor: '#ff8eac' }} onClick={handleDeleteClick}>
               Delete
             </Button>
           </>

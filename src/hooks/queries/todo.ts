@@ -49,8 +49,8 @@ export const useUpdateTodo = () => {
 
   const { mutate: updateTodo, ...restMutation } = useMutation({
     mutationFn: putTodo,
-    onSuccess: (_, { id }) => {
-      queryClient.invalidateQueries({ queryKey: [QUERY_KEY.TODO_LIST, id] });
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEY.TODO_LIST] });
 
       alert('The todo has been updated');
     },
@@ -64,8 +64,8 @@ export const useRemoveTodo = () => {
 
   const { mutate: removeTodo, ...restMutation } = useMutation({
     mutationFn: deleteTodo,
-    onSuccess: (_, { id }) => {
-      queryClient.invalidateQueries({ queryKey: [QUERY_KEY.TODO_LIST, id] });
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEY.TODO_LIST] });
 
       alert('The todo has been removed');
     },

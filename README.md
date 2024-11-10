@@ -51,16 +51,16 @@ React v18, React Router v6, TanStack-Query v5, Vite v5
 ### Todo List
 
 - Call the [Todo List API](https://github.com/starkoora/wanted-pre-onboarding-challenge-fe-1-api) and implement CRUD functionality for the Todo List.
-  - [ ] Implement the application with separate sections for the list and detail views.
-  - [ ] Display the list of Todos.
-  - [ ] Clicking the "Add Todo" button should add a new Todo.
-  - [ ] Clicking the "Edit Todo" button should activate the edit mode, allowing the user to submit or cancel the changes.
-  - [ ] Clicking the "Delete Todo" button should remove the selected Todo.
+  - [x] Implement the application with separate sections for the list and detail views.
+  - [x] Display the list of Todos.
+  - [x] Clicking the "Add Todo" button should add a new Todo.
+  - [x] Clicking the "Edit Todo" button should activate the edit mode, allowing the user to submit or cancel the changes.
+  - [x] Clicking the "Delete Todo" button should remove the selected Todo.
 - Allow the user to view the Todo List and the details of individual Todos on the same screen.
-  - [ ] Ensure the state persists even after a page refresh.
+  - [x] Ensure the state persists even after a page refresh.
   - [ ] Allow users to navigate back to view individual Todo details by using the browser's back button.
 - Ensure data consistency on the page without requiring a page refresh.
-  - [ ] Any updates to a Todo should be reflected in the list in real-time.
+  - [x] Any updates to a Todo should be reflected in the list in real-time.
 
 ## Backend Repository
 
