@@ -40,13 +40,15 @@ export default function TodoDetail(props: TodoDetailProps) {
 
   const handleCancel = () => {
     if (todo) {
+      // edit mode
       setNewTitle(todo.title);
       setNewContent(todo.content);
+      setIsEditing(false);
     } else {
+      // create mode
       setNewTitle('');
       setNewContent('');
     }
-    setIsEditing(false);
   };
 
   const handleDeleteClick = () => {
