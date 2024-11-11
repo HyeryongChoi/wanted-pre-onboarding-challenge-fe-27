@@ -4,6 +4,6 @@ export const API_URL = {
   TODOS: '/todos',
   AUTH: {
     LOGIN: '/users/login',
-    SIGNUP: '/users/create',
+    SIGN_UP: '/users/create',
   },
 };
