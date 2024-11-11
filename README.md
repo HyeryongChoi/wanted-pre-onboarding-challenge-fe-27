@@ -2,16 +2,12 @@
 
 Wanted Pre Onboarding Challenge FE Nov 2024
 
-## Viewing the Deployment
-
-You can view the live version of the project here: [Deployment Link](demolink)
-
 ## Running Locally
 
 1. Clone the repository
 
 ```bash
- git clone https://github.com/your-username/your-repository.git
+ git clone https://github.com/HyeryongChoi/wanted-pre-onboarding-challenge-fe-27.git
 ```
 
 2. Install dependencies
@@ -38,15 +34,15 @@ React v18, React Router v6, TanStack-Query v5, Vite v5
 
 - Develop the login and sign-up functionality at the `/auth` route.
   - It is fine to separate the login and sign-up routes.
-  - [ ] Ensure the page contains at least an email input, password input, and a submit button.
+  - [x] Ensure the page contains at least an email input, password input, and a submit button.
 - Validate the email and password fields.
-  - [ ] Email validation: Must contain at least `@` and `.`.
-  - [ ] Password validation: Must be at least 8 characters long.
-  - [ ] The submit button should only be enabled if both email and password are filled in and meet the validation requirements.
+  - [x] Email validation: Must contain at least `@` and `.`.
+  - [x] Password validation: Must be at least 8 characters long.
+  - [x] The submit button should only be enabled if both email and password are filled in and meet the validation requirements.
 - Call the login API and redirect to the root route upon receiving a successful response.
-  - [ ] Save the token received in the response to localStorage.
-  - [ ] If the token exists on the next login, automatically redirect to the root route.
-  - [ ] If the token is invalid at any time, alert the user and redirect them to the login page.
+  - [x] Save the token received in the response to localStorage.
+  - [x] If the token exists on the next login, automatically redirect to the root route.
+  - [x] If the token is invalid at any time, alert the user and redirect them to the login page.
 
 ### Todo List
 
@@ -65,3 +61,21 @@ React v18, React Router v6, TanStack-Query v5, Vite v5
 ## Backend Repository
 
 The backend server repository can be found here: [Backend Repo](https://github.com/starkoora/wanted-pre-onboarding-challenge-fe-1-api)
+
+1. Clone the repository
+
+```bash
+ git clone https://github.com/starkoora/wanted-pre-onboarding-challenge-fe-1-api.git
+```
+
+2. Install dependencies
+
+```bash
+yarn
+```
+
+3. Start the development server
+
+```bash
+ yarn start # http://localhost:8080
+```
