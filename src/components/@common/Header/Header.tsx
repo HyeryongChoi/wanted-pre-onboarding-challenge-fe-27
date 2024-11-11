@@ -1,4 +1,5 @@
 import { AppBar, Button, Toolbar, Typography } from '@mui/material';
+import { useEffect } from 'react';
 
 interface HeaderProps {
   title?: string;
@@ -9,6 +10,10 @@ interface HeaderProps {
 
 export default function Header(props: HeaderProps) {
   const { title = '', isLoggedIn = false, onLogin = () => {}, onLogout = () => {} } = props;
+
+  useEffect(() => {
+    if (!isLoggedIn) onLogin();
+  }, [isLoggedIn, onLogin]);
 
   return (
     <AppBar
