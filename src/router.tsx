@@ -13,6 +13,10 @@ export const router = createBrowserRouter([
         index: true,
         element: <Home />,
       },
+      {
+        path: ':id',
+        element: <Home />,
+      },
     ],
     errorElement: <div>Error</div>,
   },

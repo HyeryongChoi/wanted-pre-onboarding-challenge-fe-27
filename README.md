@@ -58,7 +58,7 @@ React v18, React Router v6, TanStack-Query v5, Vite v5
   - [x] Clicking the "Delete Todo" button should remove the selected Todo.
 - Allow the user to view the Todo List and the details of individual Todos on the same screen.
   - [x] Ensure the state persists even after a page refresh.
-  - [ ] Allow users to navigate back to view individual Todo details by using the browser's back button.
+  - [x] Allow users to navigate back to view individual Todo details by using the browser's back button.
 - Ensure data consistency on the page without requiring a page refresh.
   - [x] Any updates to a Todo should be reflected in the list in real-time.
 

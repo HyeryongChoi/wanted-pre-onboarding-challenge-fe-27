@@ -1,23 +1,28 @@
 import AddIcon from '@mui/icons-material/Add';
 import { Box, Button, Collapse, Paper } from '@mui/material';
 import { MouseEvent, useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import { TodoDetail, TodoList } from '@/components';
 import { useCreateTodo, useGetTodoList, useRemoveTodo, useUpdateTodo } from '@/hooks/queries/todo';
 import { Todo } from '@/types/client/todo';
 
 function Home() {
+  const { id } = useParams();
+  const navigate = useNavigate();
   const { todoList } = useGetTodoList();
-  const [isOpen, setIsOpen] = useState(true);
-  const [selectedTodoId, setSelectedTodoId] = useState('');
-  const [isCreateMode, setIsCreateMode] = useState(true);
   const { createTodo } = useCreateTodo();
   const { updateTodo } = useUpdateTodo();
   const { removeTodo } = useRemoveTodo();
 
+  const [isOpen, setIsOpen] = useState(true);
+  const [selectedTodoId, setSelectedTodoId] = useState('');
+  const [isCreateMode, setIsCreateMode] = useState(true);
+
   const handleTodoClick = (selectedId: string) => {
     setSelectedTodoId(selectedId);
     setIsCreateMode(false);
+    navigate(`/${selectedId}`);
   };
 
   const handleCreateTodoClick = () => {
@@ -48,11 +53,14 @@ function Home() {
   };
 
   useEffect(() => {
-    if (todoList && todoList.length > 0) {
+    if (id) {
+      setIsCreateMode(false);
+      setSelectedTodoId(id);
+    } else if (todoList && todoList.length > 0) {
       setIsCreateMode(false);
       setSelectedTodoId(todoList[0].id);
     }
-  }, [todoList]);
+  }, [id, todoList]);
 
   if (!todoList) return <div>...Loading</div>;
 

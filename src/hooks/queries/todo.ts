@@ -1,5 +1,7 @@
-import { deleteTodo, getTodo, getTodoList, postTodo, putTodo } from '@/apis/todo';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useNavigate } from 'react-router-dom';
+
+import { deleteTodo, getTodo, getTodoList, postTodo, putTodo } from '@/apis/todo';
 
 const QUERY_KEY = {
   TODO_LIST: 'todoList',
@@ -31,13 +33,16 @@ export const useGetTodo = (id: string) => {
 
 export const useCreateTodo = () => {
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
 
   const { mutate: createTodo, ...restMutation } = useMutation({
     mutationFn: postTodo,
-    onSuccess: () => {
+    onSuccess: (newTodo) => {
       queryClient.invalidateQueries({ queryKey: [QUERY_KEY.TODO_LIST] });
 
       alert('A new todo has been added');
+
+      navigate(`/${newTodo?.id}`);
     },
   });
 
